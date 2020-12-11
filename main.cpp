@@ -3,11 +3,15 @@
 #include <string>
 
 #include "ValidateArguments.h"
+#include "BetterValidateArguments.h"
 
 void test(const std::vector<std::string>& args)
 {
-    auto val = ValidateArguments{};
+    auto val = old::ValidateArguments{};
     auto result = val.validate(args);
+
+    auto val2 = better::ValidateArguments{};
+    auto result2 = val2.validate(args);
 
     std::cout << "----------------------------------" << std::endl;
     std::cout << "Input:";
@@ -16,7 +20,7 @@ void test(const std::vector<std::string>& args)
         std::cout << " \"" << arg <<"\"";
     }
     std::cout << std::endl;
-    std::cout << "Output: " << result << std::endl;
+    std::cout << "Output old: " << result << ", new: "<< result2 << std::endl;
     std::cout << "----------------------------------" << std::endl;
 }
 
@@ -28,6 +32,7 @@ int main()
     test({"--help"});
     test({"--hElP"});
     test({"--help invalid"});
+    test({"--name"});
     test({"--name", "SOME_NAME"});
     test({"--name", "s"});
     test({"--name", "to long name so invalid"});

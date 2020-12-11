@@ -1,6 +1,8 @@
 #include "ValidateArguments.h"
 #include <algorithm>
 
+namespace old
+{
 class HelpArgument : public Argument
 {
 public:
@@ -69,7 +71,7 @@ public:
     {
         auto value = std::stoi(params[0]);
 
-        if (value < 3 or value > 10)
+        if (value < 10 or value > 100)
         {
             return ReturnCode::Invalid;
         }
@@ -150,4 +152,5 @@ int ValidateArguments::validate(const std::vector<std::string>& args)
     }
 
     return static_cast<int>(result);
+}
 }

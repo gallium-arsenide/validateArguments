@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <iostream>
 
+namespace old
+{
 using Strings = std::vector<std::string>;
 
 enum class ReturnCode
@@ -36,4 +38,5 @@ private:
     std::string toLowercase(const std::string& arg);
 
     std::map<std::string, std::unique_ptr<Argument>> arguments;
+};
 };
