@@ -5,9 +5,11 @@ CONFIG -= qt
 
 SOURCES += \
         BetterValidateArguments.cpp \
+        SimpleValidateArguments.cpp \
         ValidateArguments.cpp \
         main.cpp
 
 HEADERS += \
     BetterValidateArguments.h \
+    SimpleValidateArguments.h \
     ValidateArguments.h

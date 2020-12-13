@@ -4,6 +4,7 @@
 
 #include "ValidateArguments.h"
 #include "BetterValidateArguments.h"
+#include "SimpleValidateArguments.h"
 
 void test(const std::vector<std::string>& args)
 {
@@ -13,6 +14,9 @@ void test(const std::vector<std::string>& args)
     auto val2 = better::ValidateArguments{};
     auto result2 = val2.validate(args);
 
+    auto val3 = simple::ValidateArguments{};
+    auto result3 = val3.validate(args);
+
     std::cout << "----------------------------------" << std::endl;
     std::cout << "Input:";
     for (const auto& arg : args)
@@ -20,7 +24,7 @@ void test(const std::vector<std::string>& args)
         std::cout << " \"" << arg <<"\"";
     }
     std::cout << std::endl;
-    std::cout << "Output old: " << result << ", new: "<< result2 << std::endl;
+    std::cout << "Output old: " << result << ", new: "<< result2 << ", simple: " << result3 << std::endl;
     std::cout << "----------------------------------" << std::endl;
 }
 
